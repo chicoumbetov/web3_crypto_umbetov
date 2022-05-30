@@ -2,6 +2,8 @@ import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import { contractABI, contractAddress } from "../utils/constants";
 
+declare let window: any;
+
 export interface ITodo {
   id: number;
   title: string;
@@ -32,6 +34,7 @@ const initial = {
 
 export const TransactionContext =
   React.createContext<TransactionContextType>(initial);
+
 let ethereum: any;
 if (window && window.ethereum) {
   ethereum = window.ethereum;
